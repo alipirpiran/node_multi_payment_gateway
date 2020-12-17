@@ -12,6 +12,8 @@ npm i iranmultipay
 ```javascript
 const PaymentGateway = require('iranmultipay');
 
+const zarin_key = 'ab123ab12-ca46-40b8-aca3-0c1234567890';
+
 const payment = new PaymentGateway(zarin_key, 'zarinpal', { sandbox: true });
 
 // Request Payment
