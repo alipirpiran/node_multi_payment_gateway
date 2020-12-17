@@ -7,6 +7,30 @@ simple node js module, support multiple payment gateways. to change your payment
 npm i iranmultipay
 ```
 
+## How to use
+
+```javascript
+const PaymentGateway = require('iranmultipay');
+
+const payment = new PaymentGateway(zarin_key, 'zarinpal', { sandbox: true });
+
+// Request Payment
+payment.request_payment({
+  amount: 100000,
+  callback: 'callback_url',
+  description: 'desciprion',
+  order_id: 'order_id', // required for IDPay
+});
+
+// Verify Payment (in callback url)
+payment.verify_payment({
+  payment_id: '1',
+  amount: '10000', // required for Zarinpal
+  order_id: 'order_id', // required for IDPay
+});
+```
+
+
 ## Supports 
 * Zarinpal
 * IDPay
