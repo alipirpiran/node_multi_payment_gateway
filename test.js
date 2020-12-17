@@ -1,25 +1,40 @@
-const Drvier = require('.');
-const zarin_key = '44e3315e-ca46-40b8-aca3-0c23d1154975';
-const drvier = new Drvier(zarin_key, 'zarinpal', { sandbox: true });
+const zarin_key = '';
 
-async function main() {
+const PaymentGateway = require('.');
+
+const payment = new PaymentGateway(zarin_key, 'zarinpal', { sandbox: true });
+
+// Request Payment
+payment.request_payment({
+  amount: 100000,
+  callback: 'callback_url',
+  description: 'desciprion',
+  order_id: 'order_id', // required for IDPay
+});
+
+// Verify Payment (in callback url)
+payment.verify_payment({
+  payment_id: '1',
+  amount: '10000', // required for Zarinpal
+  order_id: 'order_id', // required for IDPay
+});
+async function test() {
   try {
-    const result = await drvier.request_payment({
+    const result = await payment.request_payment({
       amount: 10000,
       callback: 'https://iprojectyar.ir/test',
       description: 'test',
       order_id: 'test',
     });
     // const result = await drvier.verify_payment({
-  //   payment_id: '1',
-  //   amount: '10000',
-  // });
-  
-  console.log(result);
-} catch (error) {
-  console.log(error);
-}
+    //   payment_id: '1',
+    //   amount: '10000',
+    // });
 
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 main();
