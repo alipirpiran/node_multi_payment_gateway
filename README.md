@@ -32,6 +32,10 @@ payment.verify_payment({
 });
 ```
 
+### Available methods
+* request_payment
+* verify_payment
+
 
 ## Supports 
 * Zarinpal
