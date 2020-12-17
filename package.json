@@ -1,0 +1,15 @@
+{
+  "name": "iranmultipay",
+  "version": "1.0.0",
+  "description": "simple node js package support multiple payment gateway services ",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index"
+  },
+  "author": "Ali Pirpiran",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "zarinpal-checkout": "^0.2.7"
+  }
+}
