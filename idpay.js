@@ -50,12 +50,17 @@ class IDPay extends base_class {
     return result;
   }
 
-  async verify_payment({ payment_id, order_id }) {
+  async verify_payment(get_params, { payment_id, order_id }) {
     const result = {
       error: null,
       complete_response: null,
       verified_transaction_id: null,
     };
+
+    if (get_params.status != 10) {
+      result.error = true;
+      return result;
+    }
 
     const response = await axios.post(
       'https://api.idpay.ir/v1.1/payment/verify',
