@@ -36,12 +36,13 @@ class Zarinpal extends base_class {
       result.error = true;
       return result;
     }
-    
+
     const response = await this.zarinpal.PaymentVerification({
       Amount: amount, // In Tomans
       Authority: payment_id,
     });
-
+    console.log(response);
+    
     if (response.status == 100) {
       result.verified_transaction_id = response.RefID;
       result.complete_response = response;
