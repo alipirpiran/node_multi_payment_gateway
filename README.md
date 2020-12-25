@@ -12,14 +12,14 @@ npm i iranmultipay
 ``` javascript
 const PaymentGateway = require('iranmultipay');
 const zarin_key = 'ab123ab12-ca46-40b8-aca3-0c1234567890';
-const payment = new PaymentGateway(zarin_key, 'zarinpal', { sandbox: true });
+const gateway = new PaymentGateway(zarin_key, 'zarinpal', { sandbox: true });
 ```
 
 #### Request Payment
 
 ```javascript
 // Request Payment
-payment.request_payment({
+gateway.request_payment({
   amount: 100000,
   callback: 'callback_url',
   description: 'desciprion',
@@ -40,7 +40,7 @@ returns:
 
 ```javascript
 // Verify Payment (in callback route)
-payment.verify_payment(get_params, {
+gateway.verify_payment(get_params, {
   amount: '10000', // required for Zarinpal
 });
 /*
