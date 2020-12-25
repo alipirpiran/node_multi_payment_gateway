@@ -26,7 +26,7 @@ class Zarinpal extends base_class {
     return result;
   }
 
-  async verify_payment(get_params, { payment_id, amount }) {
+  async verify_payment(get_params, { amount }) {
     const result = {
       error: null,
       verified_transaction_id: null,
@@ -36,13 +36,13 @@ class Zarinpal extends base_class {
       result.error = true;
       return result;
     }
-
+    const { Authority } = get_params;
     const response = await this.zarinpal.PaymentVerification({
       Amount: amount, // In Tomans
-      Authority: payment_id,
+      Authority,
     });
     console.log(response);
-    
+
     if (response.status == 100) {
       result.verified_transaction_id = response.RefID;
       result.complete_response = response;

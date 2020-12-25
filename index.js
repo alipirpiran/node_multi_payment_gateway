@@ -63,9 +63,8 @@ class PaymnetDriver {
    * @param param.amount - Zarinpal only
    * @param param.order_id - IDPay only
    */
-  async verify_payment(get_params, { payment_id, amount }) {
+  async verify_payment(get_params, { amount }) {
     return this.driver.verify_payment(get_params, {
-      payment_id,
       amount,
     });
   }

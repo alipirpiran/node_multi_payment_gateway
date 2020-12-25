@@ -50,14 +50,14 @@ class IDPay extends base_class {
     return result;
   }
 
-  async verify_payment(get_params, { payment_id }) {
+  async verify_payment(get_params) {
     const result = {
       error: null,
       complete_response: null,
       verified_transaction_id: null,
     };
 
-    const { status, order_id } = get_params;
+    const { status, order_id, id: payment_id } = get_params;
 
     if (status != 10) {
       result.error = true;
