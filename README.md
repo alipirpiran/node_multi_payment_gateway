@@ -27,11 +27,11 @@ payment.request_payment({
 });
 /*
 returns:
-  {
+  Promise<{
       error,
       payment_url,
       payment_id,
-  }
+  }>
 */
 
 ```
@@ -45,11 +45,11 @@ payment.verify_payment(get_params, {
 });
 /*
 returns:
-  {
+  Promise<{
       error,
       verified_transaction_id,
       complete_response,
-  }
+  }>
 */
 
 
