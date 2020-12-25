@@ -23,13 +23,29 @@ payment.request_payment({
   description: 'desciprion',
   order_id: 'order_id', // required for IDPay
 });
+/*
+returns:
+  {
+      error,
+      payment_url,
+      payment_id,
+  }
+*/
 
-// Verify Payment (in callback url)
-payment.verify_payment({
-  payment_id: '1',
+// Verify Payment (in callback route)
+payment.verify_payment(get_params, {
   amount: '10000', // required for Zarinpal
-  order_id: 'order_id', // required for IDPay
 });
+/*
+returns:
+  {
+      error,
+      verified_transaction_id,
+      complete_response,
+  }
+*/
+
+
 ```
 
 ### Available methods
