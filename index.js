@@ -63,8 +63,8 @@ class PaymnetDriver {
    * @param param.amount - Zarinpal only
    * @param param.order_id - IDPay only
    */
-  async verify_payment({ payment_id, order_id, amount }) {
-    return this.driver.verify_payment({ payment_id, order_id, amount });
+  async verify_payment({ payment_id, order_id, amount }, extra) {
+    return this.driver.verify_payment({ payment_id, order_id, amount }, extra);
   }
 }
 
