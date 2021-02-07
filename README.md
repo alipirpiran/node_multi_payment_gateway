@@ -9,27 +9,50 @@ npm i iranmultipay
 
 ## How to use
 
-```javascript
+``` javascript
 const PaymentGateway = require('iranmultipay');
-
 const zarin_key = 'ab123ab12-ca46-40b8-aca3-0c1234567890';
+const gateway = new PaymentGateway(zarin_key, 'zarinpal', { sandbox: true });
+```
 
-const payment = new PaymentGateway(zarin_key, 'zarinpal', { sandbox: true });
+#### Request Payment
 
+```javascript
 // Request Payment
-payment.request_payment({
+gateway.request_payment({
   amount: 100000,
   callback: 'callback_url',
   description: 'desciprion',
   order_id: 'order_id', // required for IDPay
 });
+/*
+returns:
+  Promise<{
+      error,
+      payment_url,
+      payment_id,
+  }>
+*/
 
-// Verify Payment (in callback url)
-payment.verify_payment({
-  payment_id: '1',
+```
+
+#### Verify Payment
+
+```javascript
+// Verify Payment (in callback route)
+gateway.verify_payment(get_params, {
   amount: '10000', // required for Zarinpal
-  order_id: 'order_id', // required for IDPay
 });
+/*
+returns:
+  Promise<{
+      error,
+      verified_transaction_id,
+      complete_response,
+  }>
+*/
+
+
 ```
 
 ### Available methods
