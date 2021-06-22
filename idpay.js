@@ -25,7 +25,7 @@ class IDPay extends base_class {
       'https://api.idpay.ir/v1.1/payment',
       {
         order_id,
-        amount: amount * 10,
+        amount: (+amount) * 10,
         name,
         phone: phone_number,
         mail: mail,

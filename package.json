@@ -1,6 +1,6 @@
 {
   "name": "iranmultipay",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "simple node js package support multiple payment gateway services ",
   "main": "index.js",
   "scripts": {
